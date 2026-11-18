@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cgh0k80tcpept"]
+
+[ext_resource type="Script" uid="uid://djgnlg044ytei" path="res://scripts/player_first_person.gd" id="1_3bu52"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_657aw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qpqq7"]
+
+[node name="PlayerFirstPerson" type="CharacterBody3D" unique_id=1581087534]
+script = ExtResource("1_3bu52")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=834855034]
+mesh = SubResource("CapsuleMesh_657aw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=364918103]
+shape = SubResource("CapsuleShape3D_qpqq7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1988227570]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="HoldPos" type="Marker3D" parent="Camera3D" unique_id=486369073]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5594428)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1331938902]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -30)
